@@ -1,0 +1,400 @@
+Infosys
+Tata Consultancy Services
+Wipro
+HCL Technologies
+Tech Mahindra
+Cognizant
+Accenture
+Capgemini
+IBM
+Oracle
+Microsoft
+Google
+Amazon
+Adobe
+Cisco
+Dell Technologies
+Intel
+NVIDIA
+Zoho
+Freshworks
+PayPal
+Salesforce
+SAP
+ServiceNow
+Atlassian
+VMware
+Red Hat
+Honeywell
+Bosch
+Siemens
+Hitachi
+Fujitsu
+DXC Technology
+LTIMindtree
+Mphasis
+Persistent Systems
+Birlasoft
+Hexaware
+KPIT Technologies
+Virtusa
+Nuclei
+Razorpay
+PhonePe
+Flipkart
+Myntra
+Swiggy
+Zomato
+Meesho
+Paytm
+Groww
+CRED
+Upstox
+Dream11
+BrowserStack
+Postman
+Chargebee
+Kissflow
+ManageEngine
+OpenText
+NetApp
+Western Digital
+Micron Technology
+Qualcomm
+AMD
+Broadcom
+Juniper Networks
+Ericsson
+Nokia
+Motorola Solutions
+Samsung Electronics
+LG Electronics
+Sony India
+Panasonic
+Canon India
+Xerox
+Schneider Electric
+Emerson
+Rockwell Automation
+ABB India
+Johnson Controls
+Caterpillar India
+Ford Motor Company
+Hyundai Motor India
+Renault Nissan Technology
+Volvo Group India
+Mercedes-Benz Research
+BMW India
+Toyota Kirloskar
+Ashok Leyland
+Mahindra & Mahindra
+Tata Motors
+Maruti Suzuki
+Hero MotoCorp
+Bajaj Auto
+TVS Motor Company
+Ather Energy
+Ola Electric
+Exide Industries
+Amara Raja Batteries
+Larsen & Toubro
+Godrej Infotech
+Reliance Industries
+Jio Platforms
+Bharti Airtel
+Vodafone Idea
+Reliance Retail
+Aditya Birla Group
+JSW Steel
+Vedanta Limited
+Coal India
+Indian Oil Corporation
+Bharat Petroleum
+Hindustan Petroleum
+NTPC Limited
+Power Grid Corporation
+GAIL India
+BHEL
+HAL
+ISRO
+DRDO
+Mindtree
+Sutherland Global Services
+Concentrix
+Teleperformance
+Genpact
+Infosys BPM
+Tata Elxsi
+UST Global
+YASH Technologies
+ValueLabs
+Cyient
+Sonata Software
+eClerx
+Newgen Software
+Nagarro
+GlobalLogic
+Coforge
+R Systems
+NIIT Technologies
+Sasken Technologies
+Tata Communications
+Reliance Digital
+Havells India
+Crompton Greaves
+Blue Star Limited
+Whirlpool India
+Daikin Airconditioning India
+Carrier India
+Philips India
+Baker Hughes
+SLB
+Halliburton
+BlackRock
+Morgan Stanley
+Goldman Sachs
+JPMorgan Chase
+HSBC
+Standard Chartered
+Barclays
+Deutsche Bank
+EY (Ernst & Young)
+KPMG
+Deloitte
+PwC
+Grant Thornton
+BDO India
+Fractal Analytics
+Mu Sigma
+Tiger Analytics
+LatentView Analytics
+Tredence
+EXL Service
+MuRata Electronics
+Harman International
+L&T Technology Services
+Quest Global
+Alstom India
+Thales India
+Airbus India
+Boeing India
+GE Aerospace
+GE Healthcare
+Medtronic
+Abbott India
+Pfizer India
+Novartis India
+Dr. Reddy's Laboratories
+Sun Pharmaceutical
+Cipla
+Biocon
+AstraZeneca India
+Roche India
+IQVIA
+Parexel
+Syneos Health
+UnitedHealth Group
+Optum
+American Express
+Visa
+Mastercard
+Gridworks Webworks
+Pallavantech Solutions
+Vasanttech Softworks
+Nilgiristack Dynamics
+Quantumlink Softworks
+Ganeshtech Networks
+Pathfindr Technosoft
+Velocis Infotech
+Sureshtech Solutions
+Cauverytech Technosoft
+Rootcode Industries
+Corevault Infoware
+Ashwintech Software
+Meenatech Technologies
+Balajitech Infosystems
+Manohartech Global
+Maduraitech Group
+Prakashware Softworks
+Thangatech Global
+Innovista Technosoft
+Unify Infosystems
+Karthiktech Technologies
+Synapsera Networks
+Luminex Infosystems
+Vellorenet Robotics
+Ramantech Networks
+Muruganware Enterprises
+Thangatech Consulting
+Manohartech Technosoft
+Southspire Robotics
+Unify Technosoft
+Karthiktech Software
+Novatrix Networks
+Sangamsoft Softworks
+Infinera Infosystems
+Metrixa Dynamics
+Brightline Networks
+Streamwise Software
+Rohanware Infotech
+Optimus Analytics
+Velocis Webworks
+Kinetix Analytics
+Pulsewave Digital
+Optimus Innovations
+Infinera Cloud
+Vaigainet Technosoft
+Skylytics Systems
+Xceltech Systems
+Techflow Consulting
+Bluecrest Solutions
+Peaklogic Ventures
+Elevare Industries
+Sivantech Solutions
+Palaniware Labs
+Nexlink Solutions
+Techflow Datatech
+Datastream Technologies
+Anandanet Industries
+Cybervia Software
+Voxel Softworks
+Novacore Global
+Corevia Dynamics
+Veritas Analytics
+Deccanlink Innovations
+Techspire Software
+Innovista Datatech
+Aurotech Technosoft
+Zephyra Solutions
+Vividsoft Softworks
+Nexlink Cloud
+Thangatech Analytics
+Zenith Ventures
+Netphoria Robotics
+Skyverse Networks
+Voxel Infoware
+Infinera Dynamics
+Winsoft Labs
+Nextgenix Technosoft
+Sparklabs Technologies
+Techflow Networks
+Hexlogic Analytics
+Zealsoft Consulting
+Orbisoft Software
+Zoomtech Group
+Vertexa Softworks
+Havenlogic Labs
+Farsight Cloud
+Zoomtech Technologies
+Codeverse Softworks
+Inceptum Ventures
+Radiantworks Robotics
+Kinetix Enterprises
+Datazen Analytics
+Brightline Digital
+Quintess Innovations
+Nexora Digital
+Veritas Robotics
+Cholalink Technosoft
+Bluecrest Systems
+Brightpath Webworks
+Upsurge Solutions
+Orbitware Infoware
+Codeverse Infosystems
+Vividsoft Software
+Novaris Robotics
+Kumaranet Global
+Metastack Systems
+Yieldware Technologies
+Wavelength Networks
+Coimbotech Webworks
+Orbisoft Infosystems
+Zentrix Infotech
+Datazen Infosystems
+Novalink Robotics
+Sangamsoft Global
+Corevault Softworks
+Techspire Labs
+Zentrix Consulting
+Kinetix Ventures
+Datastream Industries
+Trident Software
+Junoware Infotech
+Ramantech Softworks
+Wavefront Infosystems
+Sparklabs Technosoft
+Fusionix Innovations
+Rootcode Solutions
+Kaveritech Digital
+Cloudberry Dynamics
+Riverstack Labs
+Lumina Datatech
+Palaniware Softworks
+Clarivue Softworks
+Cognify Global
+Maduraitech Systems
+Ignitia Solutions
+Cholalink Group
+Skylytics Infoware
+Nexlink Webworks
+Trustnet Webworks
+Solaris Networks
+Dhruvsoft Infosystems
+Vasanttech Digital
+Vellorenet Innovations
+Novacore Infotech
+Trueline Labs
+Streamline Infoware
+Alphacore Infotech
+Sangamsoft Robotics
+Prospera Digital
+Novaris Infosystems
+Bharatware Networks
+Ganeshtech Industries
+Zenith Solutions
+Ignitia Software
+Marisoft Datatech
+Zephyra Infosystems
+Digicore Infotech
+Upsurge Technologies
+Yottalabs Group
+Orbisoft Datatech
+Applique Industries
+Stratosoft Webworks
+Vikramware Innovations
+Farsight Networks
+Brightline Enterprises
+Konnectify Cloud
+Sureshtech Systems
+Ashwintech Datatech
+Chennaisoft Networks
+Prospera Analytics
+Arjunnet Technosoft
+Bytewave Softworks
+Cloudberry Softworks
+Insightia Infotech
+Voxel Infosystems
+Streamwise Infotech
+Streamline Cloud
+Anaikattitech Group
+Solaris Software
+Peaklogic Dynamics
+Corevault Robotics
+Novatrix Datatech
+Wavelength Cloud
+Yieldware Dynamics
+Trident Technologies
+Valorix Innovations
+Pinnacle Systems
+Zephyra Industries
+Chennaisoft Systems
+Pallavantech Systems
+Coimbotech Software
+Hexlogic Innovations
+Palaniware Global
+Metastack Solutions
+Havenlogic Group
+Konnectify Datatech
+Logicsoft Consulting
+Logicsoft Labs
+Sanjaytech Softworks

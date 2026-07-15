@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | JobPortal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        JobPortal
+
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+        <a href="register.html">
+
+            <i class="fa-solid fa-user-plus"></i>
+
+            Register
+
+        </a>
+
+    </nav>
+
+</header>
+
+<!-- ================= LOGIN ================= -->
+
+<section class="hero" style="height:220px;">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Welcome Back
+
+        </h1>
+
+        <p>
+
+            Login to continue your Job Search
+
+        </p>
+
+    </div>
+
+</section>
+
+<div class="auth-container">
+
+    <h2>
+
+        <i class="fa-solid fa-right-to-bracket"></i>
+
+        Login
+
+    </h2>
+
+    <input
+            type="email"
+            id="email"
+            placeholder="Enter Email">
+
+    <div class="password-wrapper">
+
+        <input
+                type="password"
+                id="password"
+                placeholder="Enter Password">
+
+        <i class="fa-solid fa-eye toggle-password"
+           id="togglePasswordIcon"
+           onclick="togglePassword('password','togglePasswordIcon')"></i>
+
+    </div>
+
+    <button onclick="login()">
+
+        Login
+
+    </button>
+
+    <div id="result"></div>
+
+    <p>
+
+        Don't have an account?
+
+        <a href="register.html">
+
+            Register Here
+
+        </a>
+
+    </p>
+
+</div>
+
+<footer class="footer">
+
+    <h3>
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        © 2026 JobPortal
+
+    </h3>
+
+    <p class="footer-credit">
+
+        Developed By <span>Kaviya</span>
+
+    </p>
+
+</footer>
+
+<script src="api.js"></script>
+
+<script src="login.js"></script>
+
+</body>
+
+</html>

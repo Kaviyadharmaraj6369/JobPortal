@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | JobPortal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ============ SIMPLE ADMIN GATE ============
+     Client-side only — good enough to keep casual
+     visitors out, NOT real security. Don't rely on
+     this if this app is ever deployed publicly. -->
+<div id="adminGate" class="admin-gate">
+
+    <div class="admin-gate-box">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <h2>Admin Access</h2>
+
+        <p>Enter the admin password to continue</p>
+
+        <input type="password" id="adminPassword" placeholder="Password" onkeyup="if(event.key==='Enter') checkAdminPassword()">
+
+        <button onclick="checkAdminPassword()">Unlock</button>
+
+        <div id="adminGateError" class="admin-gate-error"></div>
+
+    </div>
+
+</div>
+
+<div id="adminContent" style="display:none;">
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <span>JobPortal</span>
+
+            <span class="admin-badge">Admin</span>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="#" onclick="adminLogout()"><i class="fa-solid fa-right-from-bracket"></i> Lock</a>
+
+        </nav>
+
+    </header>
+
+    <section class="small-hero">
+
+        <h1><i class="fa-solid fa-chart-line"></i> Admin Dashboard</h1>
+
+        <p>Registered users and job applications, in one place</p>
+
+    </section>
+
+    <section class="dashboard admin-dashboard-grid">
+
+        <div class="card">
+            <h2 id="statUsers">0</h2>
+            <p>Registered Users</p>
+        </div>
+
+        <div class="card">
+            <h2 id="statApplications">0</h2>
+            <p>Total Applications</p>
+        </div>
+
+        <div class="card">
+            <h2 id="statJobs">0</h2>
+            <p>Jobs Posted</p>
+        </div>
+
+        <div class="card">
+            <h2 id="statCompanies">0</h2>
+            <p>Companies</p>
+        </div>
+
+    </section>
+
+    <section class="admin-section">
+
+        <h2 class="section-title"><i class="fa-solid fa-users"></i> Registered Users</h2>
+
+        <div class="admin-table-wrap">
+
+            <table class="admin-table" id="usersTable">
+
+                <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+                </thead>
+
+                <tbody id="usersBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <section class="admin-section">
+
+        <h2 class="section-title"><i class="fa-solid fa-file-signature"></i> All Applications</h2>
+
+        <div class="admin-controls">
+
+            <input type="text" id="adminSearch" placeholder="Search by name, email, job or company..." onkeyup="filterApplications()">
+
+        </div>
+
+        <div class="admin-table-wrap">
+
+            <table class="admin-table" id="appsTable">
+
+                <thead>
+                <tr>
+                    <th>Applicant</th>
+                    <th>Email / Phone</th>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Applied On</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+
+                <tbody id="appsBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+        <h3>
+            <i class="fa-solid fa-briefcase"></i>
+            © 2026 JobPortal
+        </h3>
+
+        <p class="footer-credit">
+            Developed By <span>Kaviya</span>
+        </p>
+
+    </footer>
+
+</div>
+
+<script src="api.js"></script>
+<script src="admin.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JobPortal | Find Your Dream Job</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        <span>JobPortal</span>
+
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="saved.html">Saved Jobs</a>
+
+        <a href="apply.html">Applied Jobs</a>
+
+        <a href="login.html" id="loginLink">Login</a>
+
+        <a href="register.html" id="registerLink">Register</a>
+
+        <a href="#" id="logoutLink" onclick="logout()">Logout</a>
+
+        <a href="admin.html" class="admin-nav-link"><i class="fa-solid fa-chart-line"></i> Admin</a>
+
+    </nav>
+
+</header>
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+
+            Find Your Dream Job
+
+        </h1>
+
+        <p>
+
+            Discover thousands of opportunities from India's top companies.
+
+        </p>
+
+        <div class="search-box">
+
+            <input
+
+                    id="search"
+
+                    type="text"
+
+                    placeholder="Search Jobs"
+
+                    onkeyup="searchJobs()">
+
+            <button onclick="searchJobs()">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="dashboard">
+
+    <div class="card">
+
+        <h2 id="jobCount">
+
+            0
+
+        </h2>
+
+        <p>
+
+            Jobs
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2 id="companyCount">
+
+            0
+
+        </h2>
+
+        <p>
+
+            Companies
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2 id="internCount">
+
+            0
+
+        </h2>
+
+        <p>
+
+            Internships
+
+        </p>
+
+    </div>
+
+</section>
+<section>
+
+    <h2 class="title">
+
+        Top Companies
+
+    </h2>
+
+    <div
+            id="companyList"
+
+            class="company-container">
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="title">
+
+        Latest Jobs
+
+    </h2>
+
+    <div class="job-filters">
+
+        <button class="filter-btn active" data-type="ALL" onclick="filterJobs('ALL', this)">All Jobs</button>
+
+        <button class="filter-btn" data-type="JOB" onclick="filterJobs('JOB', this)">Full-Time</button>
+
+        <button class="filter-btn" data-type="INTERN" onclick="filterJobs('INTERN', this)">Internships</button>
+
+    </div>
+
+    <div
+
+            id="jobs"
+
+            class="job-container">
+
+    </div>
+
+</section>
+<!-- ===================== WHY CHOOSE US ===================== -->
+
+<section class="features">
+
+    <div class="feature-card">
+
+        <i class="fa-solid fa-building"></i>
+
+        <h3>500+ Companies</h3>
+
+        <p>
+            Trusted companies hiring freshers and experienced candidates.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i class="fa-solid fa-user-check"></i>
+
+        <h3>Verified Jobs</h3>
+
+        <p>
+            Every job is verified before publishing.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+        <h3>One Click Apply</h3>
+
+        <p>
+            Apply instantly with your profile and resume.
+        </p>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <h3>
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        © 2026 JobPortal
+
+    </h3>
+
+    <p class="footer-credit">
+
+        Developed By <span>Kaviya</span>
+
+    </p>
+
+    <div class="footer-contact">
+
+        <a href="mailto:kaviyadharmaraj457@gmail.com">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            kaviyadharmaraj457@gmail.com
+
+        </a>
+
+        <a href="tel:6369187219">
+
+            <i class="fa-solid fa-phone"></i>
+
+            +91 6369187219
+
+        </a>
+
+    </div>
+
+</footer>
+<script src="api.js"></script>
+
+<script src="toast.js"></script>
+
+<script src="company-logo.js"></script>
+
+<script src="jobs.js"></script>
+
+</body>
+
+</html>

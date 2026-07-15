@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | JobPortal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="description" content="Create a free JobPortal account to start applying for jobs and internships.">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        JobPortal
+
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+        <a href="login.html">
+
+            <i class="fa-solid fa-right-to-bracket"></i>
+
+            Login
+
+        </a>
+
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" style="height:220px;">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Create Your Account
+
+        </h1>
+
+        <p>
+
+            Join JobPortal and Apply for Your Dream Job
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= REGISTER FORM ================= -->
+
+<div class="auth-container">
+
+    <h2>
+
+        <i class="fa-solid fa-user-plus"></i>
+
+        Register
+
+    </h2>
+
+    <input
+            type="text"
+            id="name"
+            placeholder="Full Name">
+
+    <input
+            type="email"
+            id="email"
+            placeholder="Email Address">
+
+    <div class="password-wrapper">
+
+        <input
+                type="password"
+                id="password"
+                placeholder="Password">
+
+        <i class="fa-solid fa-eye toggle-password"
+           id="togglePasswordIcon"
+           onclick="togglePassword('password','togglePasswordIcon')"></i>
+
+    </div>
+
+    <div class="password-wrapper">
+
+        <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password">
+
+        <i class="fa-solid fa-eye toggle-password"
+           id="toggleConfirmPasswordIcon"
+           onclick="togglePassword('confirmPassword','toggleConfirmPasswordIcon')"></i>
+
+    </div>
+
+    <button onclick="register()">
+
+        Create Account
+
+    </button>
+
+    <div id="result"></div>
+
+    <p>
+
+        Already have an account?
+
+        <a href="login.html">
+
+            Login Here
+
+        </a>
+
+    </p>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <h3>
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        © 2026 JobPortal
+
+    </h3>
+
+    <p class="footer-credit">
+
+        Developed By <span>Kaviya</span>
+
+    </p>
+
+</footer>
+
+<script src="api.js"></script>
+<script src="register.js"></script>
+
+</body>
+
+</html>

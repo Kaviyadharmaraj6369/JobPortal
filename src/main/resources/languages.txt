@@ -1,0 +1,60 @@
+Java
+Spring Boot
+Spring MVC
+Spring Security
+Hibernate
+JPA
+REST API
+Microservices
+Python
+Django
+Flask
+FastAPI
+C
+C++
+C#
+JavaScript
+TypeScript
+HTML5
+CSS3
+Bootstrap
+Tailwind CSS
+React.js
+Angular
+Vue.js
+Node.js
+Express.js
+PHP
+Laravel
+MySQL
+PostgreSQL
+Oracle Database
+MongoDB
+Redis
+Firebase
+AWS
+Microsoft Azure
+Google Cloud Platform
+Docker
+Kubernetes
+Git
+GitHub
+GitLab
+Jenkins
+Maven
+Gradle
+Apache Kafka
+RabbitMQ
+Linux
+Windows Server
+Power BI
+Tableau
+Excel
+Machine Learning
+Artificial Intelligence
+Data Structures
+Algorithms
+OOP
+Design Patterns
+Agile
+Scrum
