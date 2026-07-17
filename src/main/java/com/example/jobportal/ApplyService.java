@@ -11,6 +11,17 @@ public class ApplyService {
 
     @Autowired
     private AppliedJobRepository repository;
+    public void withdraw(Integer id) {
+
+        if (!repository.existsById(id)) {
+
+            throw new RuntimeException("Application Not Found");
+
+        }
+
+        repository.deleteById(id);
+
+    }
 
     public AppliedJob applyJob(ApplyRequest request) {
 
@@ -21,6 +32,7 @@ public class ApplyService {
 
             throw new RuntimeException("You have already applied for this job.");
         }
+
 
         AppliedJob appliedJob = new AppliedJob();
 
@@ -80,6 +92,7 @@ public class ApplyService {
         job.setStatus(status);
 
         return repository.save(job);
+
 
     }
 }

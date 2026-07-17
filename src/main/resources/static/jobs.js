@@ -254,7 +254,7 @@ function renderJobPage(){
         </div>
 
     </div>
-
+${getSkillMatchBadge(job)}
     <div class="job-details">
 
         <p>
@@ -735,7 +735,52 @@ function markSaved(btn){
     btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> Saved`;
 
 }
+// Compares this job's required skills (job.language) against
+// the skills saved on the user's Profile page, and shows a
+// quick match percentage — like Naukri/LinkedIn's "X% match".
+function getSkillMatchBadge(job){
 
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if(!user) return "";
+
+    const raw = localStorage.getItem("profile_" + user.id);
+
+    if(!raw) return "";
+
+    const profile = JSON.parse(raw);
+
+    if(!profile.skills) return "";
+
+    const mySkills = profile.skills
+        .toLowerCase()
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean);
+
+    const jobSkills = (job.language || "")
+        .toLowerCase()
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean);
+
+    if(mySkills.length===0 || jobSkills.length===0) return "";
+
+    const matched = jobSkills.filter(js =>
+        mySkills.some(ms => ms.includes(js) || js.includes(ms))
+    );
+
+    const percent = Math.round((matched.length / jobSkills.length) * 100);
+
+    let cssClass = "low";
+    if(percent >= 70) cssClass = "high";
+    else if(percent >= 40) cssClass = "mid";
+
+    return `<div class="skill-match ${cssClass}">
+                <i class="fa-solid fa-bullseye"></i> ${percent}% Match
+            </div>`;
+
+}
 // =======================================
 // APPLY JOB
 // =======================================

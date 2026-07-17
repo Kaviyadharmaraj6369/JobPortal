@@ -118,5 +118,23 @@ public class ApplyController {
         return service.updateStatus(id, status);
 
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> withdraw(@PathVariable Integer id) {
+
+        try {
+
+            service.withdraw(id);
+
+            return ResponseEntity.ok("Application withdrawn successfully");
+
+        } catch (Exception e) {
+
+            return ResponseEntity
+                    .badRequest()
+                    .body(e.getMessage());
+
+        }
+
+    }
 
 }

@@ -5,19 +5,16 @@
 // to which job, and when.
 // ==========================================================
 
-// First-time setup: no password is hardcoded. The very first
-// person to open this page sets their own password, which is
-// then required on every future visit (stored in this browser
-// only — client-side gate, not real server-side security).
-const ADMIN_PASSWORD_KEY = "kaviya2026";
+// Client-side-only gate — keeps casual visitors out during
+// local/dev use. NOT real security; don't rely on this alone
+// if this app is ever deployed publicly.
+const ADMIN_PASSWORD = "Kavi@1929";
 
 let allApplications = [];
 let jobCache = {};
 let usersByEmail = {};
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    setupGateUI();
 
     if (sessionStorage.getItem("adminUnlocked") === "true") {
 
@@ -27,78 +24,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// Simple non-reversible-looking hash so the password isn't sitting
-// in localStorage as plain text. Still client-side only — this is
-// a convenience gate, not real security.
-function hashPassword(pwd) {
+function togglePassword(inputId, iconId) {
 
-    let hash = 0;
+    const input = document.getElementById(inputId);
 
-    for (let i = 0; i < pwd.length; i++) {
-        hash = (hash << 5) - hash + pwd.charCodeAt(i);
-        hash |= 0;
-    }
+    const icon = document.getElementById(iconId);
 
-    return String(hash);
+    if (input.type === "password") {
 
-}
+        input.type = "text";
 
-function setupGateUI() {
+        icon.classList.remove("fa-eye");
 
-    const hasPassword = !!localStorage.getItem(ADMIN_PASSWORD_KEY);
-
-    const title = document.getElementById("adminGateTitle");
-    const subtitle = document.getElementById("adminGateSubtitle");
-    const input = document.getElementById("adminPassword");
-    const confirmInput = document.getElementById("adminPasswordConfirm");
-    const button = document.getElementById("adminGateButton");
-
-    if (!hasPassword) {
-
-        // First time on this browser — ask them to create a password.
-        title.innerText = "Create Admin Password";
-        subtitle.innerText = "No password set yet. Choose one to protect this page.";
-        confirmInput.style.display = "block";
-        button.innerText = "Set Password";
-        button.onclick = createAdminPassword;
+        icon.classList.add("fa-eye-slash");
 
     } else {
 
-        title.innerText = "Admin Access";
-        subtitle.innerText = "Enter the admin password to continue";
-        confirmInput.style.display = "none";
-        button.innerText = "Unlock";
-        button.onclick = checkAdminPassword;
+        input.type = "password";
+
+        icon.classList.remove("fa-eye-slash");
+
+        icon.classList.add("fa-eye");
 
     }
-
-}
-
-function createAdminPassword() {
-
-    const pwd = document.getElementById("adminPassword").value;
-    const confirmPwd = document.getElementById("adminPasswordConfirm").value;
-    const errorBox = document.getElementById("adminGateError");
-
-    if (!pwd || pwd.length < 4) {
-
-        errorBox.innerText = "Password must be at least 4 characters.";
-        return;
-
-    }
-
-    if (pwd !== confirmPwd) {
-
-        errorBox.innerText = "Passwords don't match.";
-        return;
-
-    }
-
-    localStorage.setItem(ADMIN_PASSWORD_KEY, hashPassword(pwd));
-
-    sessionStorage.setItem("adminUnlocked", "true");
-
-    unlockAdmin();
 
 }
 
@@ -108,9 +56,7 @@ function checkAdminPassword() {
 
     const errorBox = document.getElementById("adminGateError");
 
-    const savedHash = localStorage.getItem(ADMIN_PASSWORD_KEY);
-
-    if (hashPassword(entered) === savedHash) {
+    if (entered === ADMIN_PASSWORD) {
 
         sessionStorage.setItem("adminUnlocked", "true");
 
@@ -124,22 +70,7 @@ function checkAdminPassword() {
 
 }
 
-// Lets you clear a forgotten password and set a new one. Since
-// this is a client-side-only gate, "reset" just means clearing
-// what's stored in this browser so the setup flow runs again.
-function resetAdminPassword() {
-
-    localStorage.removeItem(ADMIN_PASSWORD_KEY);
-
-    sessionStorage.removeItem("adminUnlocked");
-
-    document.getElementById("adminGateError").innerText = "Password reset. Set a new one below.";
-
-    setupGateUI();
-
-}
-
-async function unlockAdmin() {
+function unlockAdmin() {
 
     document.getElementById("adminGate").style.display = "none";
 
@@ -147,7 +78,7 @@ async function unlockAdmin() {
 
     loadStats();
 
-    await loadUsers();
+    loadUsers();
 
     loadApplications();
 

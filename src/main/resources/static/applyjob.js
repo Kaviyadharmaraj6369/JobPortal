@@ -70,6 +70,105 @@ async function checkAlreadyApplied(){
 
 }
 
+// ===============================
+// SIMILAR JOBS RECOMMENDATION
+// ===============================
+// Suggests other openings of the same type (JOB/INTERN) that
+// share at least one required skill with the job being viewed —
+// same idea as "People also viewed" on real job portals.
+
+async function loadSimilarJobs(currentJob){
+
+    try{
+
+        const res = await fetch(API);
+
+        const allJobs = await res.json();
+
+        const currentSkills = (currentJob.language || "")
+            .toLowerCase()
+            .split(",")
+            .map(s => s.trim())
+            .filter(Boolean);
+
+        const similar = allJobs.filter(j => {
+
+            if(Number(j.id) === Number(currentJob.id)) return false;
+
+            if(j.type !== currentJob.type) return false;
+
+            const jSkills = (j.language || "").toLowerCase();
+
+            return currentSkills.some(skill => jSkills.includes(skill));
+
+        }).slice(0, 3);
+
+        const section = document.getElementById("similarJobsSection");
+
+        const container = document.getElementById("similarJobs");
+
+        if(similar.length === 0){
+
+            section.style.display = "none";
+
+            return;
+
+        }
+
+        container.innerHTML = similar.map(job => `
+
+            <div class="job-card">
+
+                <div class="job-header">
+
+                    <img src="${getCompanyLogoUrl(job.company)}" class="company-logo" alt="${job.company}">
+
+                    <div>
+                        <h3>${job.title}</h3>
+                        <h4>${job.company}</h4>
+                    </div>
+
+                </div>
+
+                <div class="job-details">
+
+                    <p><i class="fa-solid fa-location-dot"></i> ${job.location}</p>
+                    <p><i class="fa-solid fa-code"></i> ${job.language}</p>
+                    <p><i class="fa-solid fa-indian-rupee-sign"></i> ${job.salary || job.stipend || "N/A"}</p>
+
+                </div>
+
+                <div class="job-buttons">
+
+                    <button class="apply-btn" onclick="goToSimilarJob(${job.id})">
+                        <i class="fa-solid fa-paper-plane"></i> View & Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+        section.style.display = "block";
+
+    }
+    catch(error){
+
+        console.log(error);
+
+    }
+
+}
+
+function goToSimilarJob(id){
+
+    localStorage.setItem("selectedJobId", id);
+
+    window.location.reload();
+
+}
+
 async function loadJob(){
 
     try{
@@ -93,6 +192,8 @@ async function loadJob(){
         document.getElementById("companyLogo").src =
 
             getCompanyLogoUrl(job.company);
+
+        loadSimilarJobs(job);
 
     }
 
@@ -184,11 +285,24 @@ async function submitApplication(){
 
         if(res.ok){
 
+            const applicantEmail = document.getElementById("email").value;
+
             document.getElementById("result").innerHTML=
 
                 `<div class="success-box">
 
                 🎉 Application Submitted Successfully
+
+            </div>
+
+            <div class="email-sim-box">
+
+                <i class="fa-solid fa-envelope-circle-check"></i>
+
+                <div>
+                    <strong>Confirmation email sent</strong>
+                    <p>A copy of your application has been sent to ${applicantEmail} (simulated).</p>
+                </div>
 
             </div>`;
 
@@ -196,7 +310,7 @@ async function submitApplication(){
 
                 window.location.href="apply.html";
 
-            },1500);
+            },2200);
 
         }
 

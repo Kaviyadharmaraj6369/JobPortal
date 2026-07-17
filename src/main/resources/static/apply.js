@@ -162,7 +162,7 @@ ${new Date(apply.appliedDate).toLocaleDateString()}
 
 </div>
 
-<div class="applicant-details open" id="details-${apply.id}">
+<div class="applicant-details" id="details-${apply.id}">
 
 <h4 class="applicant-details-title">
 
@@ -214,6 +214,36 @@ ${apply.resumePath ? `<a href="/uploads/${apply.resumePath}" target="_blank" rel
 
 </div>
 
+<div class="job-buttons">
+
+<button
+
+class="view-btn"
+
+onclick="toggleDetails(${apply.id})">
+
+<i class="fa-solid fa-user"></i>
+
+<span id="toggle-label-${apply.id}">View My Details</span>
+
+</button>
+
+<button
+
+class="withdraw-btn"
+
+onclick="withdrawApplication(${apply.id})">
+
+<i class="fa-solid fa-trash-can"></i>
+
+Withdraw
+
+</button>
+
+</div>
+
+</div>
+
 `;
 
         }
@@ -239,6 +269,73 @@ Unable to load applied jobs
 </div>
 
 `;
+
+    }
+
+}
+
+// ===============================
+// TOGGLE APPLICANT DETAILS
+// ===============================
+
+function toggleDetails(id) {
+
+    const box = document.getElementById("details-" + id);
+
+    const label = document.getElementById("toggle-label-" + id);
+
+    if (!box) return;
+
+    const isOpen = box.classList.toggle("open");
+
+    label.innerText = isOpen ? "Hide My Details" : "View My Details";
+
+}
+
+// ===============================
+// WITHDRAW APPLICATION
+// ===============================
+
+async function withdrawApplication(id) {
+
+    const confirmed =
+        (typeof showConfirm === "function")
+            ? await showConfirm("This will permanently remove your application. You can apply again later if you change your mind.", "Withdraw this application?")
+            : confirm("Withdraw this application?");
+
+    if (!confirmed) return;
+
+    try {
+
+        const res = await fetch(BASE_URL + "/apply/" + id, {
+            method: "DELETE"
+        });
+
+        if (res.ok) {
+
+            if (typeof showToast === "function") {
+                showToast("Application withdrawn", "success");
+            }
+
+            loadAppliedJobs();
+
+        } else {
+
+            const msg = await res.text();
+
+            if (typeof showToast === "function") {
+                showToast(msg || "Unable to withdraw application", "error");
+            }
+
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        if (typeof showToast === "function") {
+            showToast("Unable to withdraw application", "error");
+        }
 
     }
 

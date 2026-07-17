@@ -12,6 +12,10 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <meta name="description" content="JobPortal admin dashboard — manage users and applications.">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -19,7 +23,7 @@
 
 <body>
 
-<!-- ============ SIMPLE ADMIN GATE ============
+<!-- ============ ADMIN GATE ============
      Client-side only — good enough to keep casual
      visitors out, NOT real security. Don't rely on
      this if this app is ever deployed publicly. -->
@@ -33,7 +37,15 @@
 
         <p>Enter the admin password to continue</p>
 
-        <input type="password" id="adminPassword" placeholder="Password" onkeyup="if(event.key==='Enter') checkAdminPassword()">
+        <div class="password-wrapper">
+
+            <input type="password" id="adminPassword" placeholder="Password" onkeyup="if(event.key==='Enter') checkAdminPassword()">
+
+            <i class="fa-solid fa-eye toggle-password"
+               id="toggleAdminPasswordIcon"
+               onclick="togglePassword('adminPassword','toggleAdminPasswordIcon')"></i>
+
+        </div>
 
         <button onclick="checkAdminPassword()">Unlock</button>
 
@@ -109,7 +121,7 @@
 
                 <thead>
                 <tr>
-                    <th>S.No</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
@@ -147,6 +159,7 @@
                     <th>Company</th>
                     <th>Applied On</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
 

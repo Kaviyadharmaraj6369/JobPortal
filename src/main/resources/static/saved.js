@@ -121,7 +121,8 @@ async function loadSaved() {
 
         <button
             class="apply-btn"
-            onclick="viewJob(${job.id})">
+            id="apply-btn-${job.id}"
+            onclick="viewJob(${job.id}, this)">
 
             <i class="fa-solid fa-paper-plane"></i>
 
@@ -142,9 +143,47 @@ async function loadSaved() {
         document.getElementById("savedJobs").innerHTML =
             html || "<h2 style='text-align:center'>No Saved Jobs</h2>";
 
+        markAlreadyAppliedJobs();
+
     }
 
     catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+// Marks Apply buttons as "Already Applied" (red) for saved jobs
+// this user has already applied to — same behavior as the
+// home page, so status stays consistent everywhere.
+async function markAlreadyAppliedJobs(){
+
+    try{
+
+        const res = await fetch(BASE_URL + "/apply/user/" + user.id);
+
+        const appliedJobs = await res.json();
+
+        appliedJobs.forEach(a => {
+
+            const btn = document.getElementById("apply-btn-" + a.jobId);
+
+            if(btn){
+
+                btn.classList.add("already-applied");
+
+                btn.disabled = true;
+
+                btn.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> Already Applied`;
+
+            }
+
+        });
+
+    }
+    catch(error){
 
         console.log(error);
 
