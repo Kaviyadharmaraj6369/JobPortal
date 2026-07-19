@@ -14,6 +14,11 @@ let currentPageJobs = [];
 let jobsPerPage = 12;
 let jobsShown = 0;
 
+// Tracks which company's "View Jobs" was clicked, if any — used
+// to show a friendlier empty-state message instead of a generic
+// "No Jobs Found" when a specific company has nothing open.
+let lastViewedCompany = null;
+
 // ===============================
 // LOAD PAGE
 // ===============================
@@ -59,6 +64,8 @@ function checkNavbar(){
 // ===============================
 
 async function loadJobs(){
+
+    lastViewedCompany = null;
 
     const jobsContainer = document.getElementById("jobs");
 
@@ -214,8 +221,10 @@ function renderJobPage(){
 
             `<div class="no-data">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <h2>No Jobs Found</h2>
-                <p>Try a different filter or search term.</p>
+                <h2>${lastViewedCompany ? "No Openings Right Now" : "No Jobs Found"}</h2>
+                <p>${lastViewedCompany
+                ? `${lastViewedCompany} doesn't have any open positions at the moment. Check back soon, or explore other companies below.`
+                : "Try a different filter or search term."}</p>
             </div>`;
 
         const wrap = document.getElementById("loadMoreWrap");
@@ -237,7 +246,7 @@ function renderJobPage(){
         html += `
 
 <div class="job-card">
-
+${getSkillMatchBadge(job)}
     <div class="job-header">
 
         <img
@@ -254,7 +263,7 @@ function renderJobPage(){
         </div>
 
     </div>
-${getSkillMatchBadge(job)}
+
     <div class="job-details">
 
         <p>
@@ -530,6 +539,8 @@ async function loadCompanies(){
 
 function filterJobs(type, btn){
 
+    lastViewedCompany = null;
+
     document.querySelectorAll(".filter-btn").forEach(b=>{
 
         b.classList.remove("active");
@@ -558,6 +569,8 @@ function filterJobs(type, btn){
 // =======================================
 
 function viewCompanyJobs(companyName){
+
+    lastViewedCompany = companyName;
 
     document.querySelectorAll(".filter-btn").forEach(b=>{
 
@@ -595,6 +608,8 @@ function viewCompanyJobs(companyName){
 // =======================================
 
 async function searchJobs(){
+
+    lastViewedCompany = null;
 
     document.querySelectorAll(".filter-btn").forEach(b=>{
 
@@ -735,52 +750,7 @@ function markSaved(btn){
     btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> Saved`;
 
 }
-// Compares this job's required skills (job.language) against
-// the skills saved on the user's Profile page, and shows a
-// quick match percentage — like Naukri/LinkedIn's "X% match".
-function getSkillMatchBadge(job){
 
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    if(!user) return "";
-
-    const raw = localStorage.getItem("profile_" + user.id);
-
-    if(!raw) return "";
-
-    const profile = JSON.parse(raw);
-
-    if(!profile.skills) return "";
-
-    const mySkills = profile.skills
-        .toLowerCase()
-        .split(",")
-        .map(s => s.trim())
-        .filter(Boolean);
-
-    const jobSkills = (job.language || "")
-        .toLowerCase()
-        .split(",")
-        .map(s => s.trim())
-        .filter(Boolean);
-
-    if(mySkills.length===0 || jobSkills.length===0) return "";
-
-    const matched = jobSkills.filter(js =>
-        mySkills.some(ms => ms.includes(js) || js.includes(ms))
-    );
-
-    const percent = Math.round((matched.length / jobSkills.length) * 100);
-
-    let cssClass = "low";
-    if(percent >= 70) cssClass = "high";
-    else if(percent >= 40) cssClass = "mid";
-
-    return `<div class="skill-match ${cssClass}">
-                <i class="fa-solid fa-bullseye"></i> ${percent}% Match
-            </div>`;
-
-}
 // =======================================
 // APPLY JOB
 // =======================================
@@ -861,3 +831,33 @@ async function logout(){
     }
 
 }
+function getSkillMatchBadge(job){
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if(!user) return "";
+
+    const raw = localStorage.getItem("profile_" + user.id);
+
+    if(!raw) return "";
+
+    const profile = JSON.parse(raw);
+
+    if(!profile.skills) return "";
+
+    const mySkills = profile.skills.toLowerCase().split(",").map(s => s.trim()).filter(Boolean);
+
+    const jobSkills = (job.language || "").toLowerCase().split(",").map(s => s.trim()).filter(Boolean);
+
+    if(mySkills.length===0 || jobSkills.length===0) return "";
+
+    const matched = jobSkills.filter(js => mySkills.some(ms => ms.includes(js) || js.includes(ms)));
+
+    const percent = Math.round((matched.length / jobSkills.length) * 100);
+
+    let cssClass = percent >= 70 ? "high" : percent >= 40 ? "mid" : "low";
+
+    return `<div class="skill-match ${cssClass}"><i class="fa-solid fa-bullseye"></i> ${percent}% Match</div>`;
+
+}
+
