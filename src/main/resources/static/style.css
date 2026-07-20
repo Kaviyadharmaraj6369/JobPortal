@@ -2127,3 +2127,19 @@ img.company-logo{
 .skill-match.high{ background:var(--success-bg); color:var(--success); }
 .skill-match.mid{ background:var(--warning-bg); color:var(--warning); }
 .skill-match.low{ background:#f1f2f5; color:var(--text-muted); }
+.required-tag{
+    color:var(--danger);
+    font-weight:700;
+}
+.optional-tag{
+    color:var(--text-muted);
+    font-weight:400;
+    font-size:12px;
+    text-transform:none;
+    letter-spacing:0;
+}
+.input-group input.field-error,
+.input-group textarea.field-error{
+    border-color:var(--danger) !important;
+    background:var(--danger-bg) !important;
+}

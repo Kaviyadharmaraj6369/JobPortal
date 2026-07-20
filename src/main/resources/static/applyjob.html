@@ -149,7 +149,7 @@
             Fill all details carefully before submitting.
         </p>
 
-        <form id="applyForm">
+        <form id="applyForm"  onsubmit="return false;">
 
             <!-- PERSONAL INFORMATION -->
 
@@ -166,7 +166,7 @@
                 <div class="input-group">
 
                     <label>Full Name</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="text"
                             id="fullName"
@@ -178,7 +178,7 @@
                 <div class="input-group">
 
                     <label>Email Address</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="email"
                             id="email"
@@ -190,7 +190,7 @@
                 <div class="input-group">
 
                     <label>Mobile Number</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="text"
                             id="phone"
@@ -202,7 +202,7 @@
                 <div class="input-group">
 
                     <label>Date Of Birth</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="date"
                             id="dob"
@@ -226,7 +226,7 @@
                 <div class="input-group">
 
                     <label>Qualification</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="text"
                             id="qualification"
@@ -238,7 +238,7 @@
                 <div class="input-group">
 
                     <label>College Name</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="text"
                             id="college"
@@ -250,7 +250,7 @@
                 <div class="input-group">
 
                     <label>Passing Year</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="text"
                             id="passingYear"
@@ -262,7 +262,7 @@
                 <div class="input-group">
 
                     <label>Experience</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="text"
                             id="experience"
@@ -288,7 +288,7 @@
                 <div class="input-group full-width">
 
                     <label>Skills</label>
-
+                    <span class="required-tag">*</span>
                     <textarea
                             id="skills"
                             rows="4"
@@ -299,7 +299,7 @@
                 <div class="input-group">
 
                     <label>Current Location</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="text"
                             id="currentLocation"
@@ -310,7 +310,7 @@
                 <div class="input-group">
 
                     <label>LinkedIn Profile</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="url"
                             id="linkedin"
@@ -320,7 +320,7 @@
                 <div class="input-group">
 
                     <label>GitHub Profile</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="url"
                             id="github"
@@ -331,7 +331,7 @@
                 <div class="input-group">
 
                     <label>Portfolio Website</label>
-
+                    <span class="required-tag">*</span>
                     <input
                             type="url"
                             id="portfolio"
@@ -342,7 +342,7 @@
                 <div class="input-group">
 
                     <label>LeetCode Profile</label>
-
+                    <span class="optional-tag">(optional)</span>
                     <input
                             type="url"
                             id="leetcode"
@@ -353,7 +353,7 @@
                 <div class="input-group">
 
                     <label>HackerRank Profile</label>
-
+                    <span class="optional-tag">(optional)</span>
                     <input
                             type="url"
                             id="hackerrank"
@@ -370,7 +370,7 @@
                 <i class="fa-solid fa-file-arrow-up"></i>
 
                 Upload Resume
-
+                <span class="required-tag">*</span>
             </div>
 
             <div class="upload-box">
@@ -385,7 +385,7 @@
                         type="file"
                         id="resumeFile"
                         accept=".pdf,.doc,.docx">
-
+                <span class="required-tag">*</span>
             </div>
 
             <!-- AGREEMENT -->
@@ -396,7 +396,7 @@
                         type="checkbox"
                         id="agree"
                         required>
-
+                <span class="required-tag">*</span>
                 <label for="agree">
 
                     I confirm that all the information provided is correct.

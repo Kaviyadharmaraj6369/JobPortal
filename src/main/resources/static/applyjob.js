@@ -24,7 +24,18 @@ if (!jobId) {
 // now lives in the shared company-logo.js file.
 
 document.addEventListener("DOMContentLoaded", () => {
-
+// Add to applyjob.js, call once in DOMContentLoaded:
+    document.getElementById("skills").addEventListener("input", function(){
+        const count = this.value.split(",").filter(s => s.trim()).length;
+        let hint = document.getElementById("skillsHint");
+        if(!hint){
+            hint = document.createElement("small");
+            hint.id = "skillsHint";
+            hint.style.color = "#666";
+            this.parentElement.appendChild(hint);
+        }
+        hint.innerText = count + " skill(s) added";
+    });
     checkAlreadyApplied();
 
 });
@@ -205,6 +216,79 @@ async function loadJob(){
 
 }
 async function submitApplication(){
+
+    // ===============================
+    // VALIDATE REQUIRED FIELDS
+    // ===============================
+    // LinkedIn, GitHub, Portfolio, LeetCode and HackerRank stay
+    // optional — everything else needs to be filled before the
+    // Apply button actually submits anything.
+
+    const requiredFields = [
+        { id: "fullName", label: "Full Name" },
+        { id: "email", label: "Email" },
+        { id: "phone", label: "Phone" },
+        { id: "dob", label: "Date of Birth" },
+        { id: "qualification", label: "Qualification" },
+        { id: "college", label: "College" },
+        { id: "passingYear", label: "Passing Year" },
+        { id: "experience", label: "Experience" },
+        { id: "skills", label: "Skills" },
+        { id: "currentLocation", label: "Current Location" }
+
+    ];
+
+    const missing = requiredFields.filter(f => {
+
+        const el = document.getElementById(f.id);
+
+        return !el || !el.value.trim();
+
+    });
+
+    // Clear any previous error highlighting, then mark the
+    // fields that are still missing right now.
+    requiredFields.forEach(f => {
+
+        const el = document.getElementById(f.id);
+
+        if(el) el.classList.remove("field-error");
+
+    });
+
+    missing.forEach(f => {
+
+        const el = document.getElementById(f.id);
+
+        if(el) el.classList.add("field-error");
+
+    });
+
+    if(missing.length > 0){
+
+        const missingNames = missing.map(f => f.label).join(", ");
+// Add inside the requiredFields check block, after the missing.length check:
+        const phoneVal = document.getElementById("phone").value.trim();
+        if(phoneVal && !/^[6-9]\d{9}$/.test(phoneVal)){
+            showToast("Enter a valid 10-digit Indian mobile number", "error");
+            document.getElementById("phone").classList.add("field-error");
+            return;
+        }
+        if(typeof showToast === "function"){
+            showToast("Please fill: " + missingNames, "error");
+        }
+
+        document.getElementById("result").innerHTML =
+            `<div class="error-box">Please fill all required fields: ${missingNames}</div>`;
+
+        // Focus the first missing field so the user can jump
+        // straight to it instead of hunting for it.
+        const firstMissingEl = document.getElementById(missing[0].id);
+        if(firstMissingEl) firstMissingEl.focus();
+
+        return;
+
+    }
 
     const file = document.getElementById("resumeFile").files[0];
 
