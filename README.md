@@ -70,20 +70,67 @@ JobPortal
 │── README.md
 ```
 
----
 
-## 📷 Application Screens
 
-- Home Page
-- Login Page
-- Registration Page
-- Job Listing
-- Saved Jobs
-- Apply Job
+# 📸 Application Screens
 
-(Add screenshots here)
+## 🏠 Home Page
+
+![Home Page](screenshots/home.png)
 
 ---
+
+## 🔐 Login Page
+
+![Login Page](screenshots/login.png)
+
+---
+
+## 📝 Registration Page
+
+![Registration Page](screenshots/register.png)
+
+---
+
+## 💼 Job Listings
+
+![Job Listings](screenshots/job-list.png)
+
+---
+
+## 🔍 Search Jobs
+
+![Search Jobs](screenshots/search-job.png)
+
+---
+
+## ❤️ Saved Jobs
+
+![Saved Jobs](screenshots/saved-jobs.png)
+
+---
+
+## 📄 Apply Job
+
+![Apply Job](screenshots/apply-job.png)
+
+---
+
+## 📋 Applied Jobs
+
+![Applied Jobs](screenshots/applied-jobs.png)
+
+---
+
+## 👨‍💼 Recruiter Dashboard
+
+![Recruiter Dashboard](screenshots/recruiter-dashboard.png)
+
+---
+
+## ➕ Add Job
+
+![Add Job](screenshots/add-job.png)
 
 ## ⚙️ Installation
 
