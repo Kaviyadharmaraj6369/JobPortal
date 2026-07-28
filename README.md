@@ -71,51 +71,29 @@ JobPortal
 ```
 
 
-
-# 📸 Application Screens
-
 ## 🏠 Home Page
-
-![Home Page](screenshots/home.png)
-
----
+![Home Page](screenshots/Home.png)
 
 ## 🔐 Login Page
-
-![Login Page](screenshots/login.png)
-
----
+![Login Page](screenshots/Login.png)
 
 ## 📝 Registration Page
+![Registration Page](screenshots/Registration.png)
 
-![Registration Page](screenshots/registration.png)
+## 📄 Apply Job
+![Apply Job](screenshots/Apply.png)
 
----
+## 📋 Applied Jobs
+![Applied Jobs](screenshots/Applied Jobs.png)
 
 ## ❤️ Saved Jobs
-
-![Saved Jobs](screenshots/saved-jobs.png)
-
----
-## 📄 Apply Job
-
-![Apply Job](screenshots/apply.png)
----
-## 📄 Applied Jobs
-
-![Applied Jobs](screenshots/applied-jobs.png)
-
----
+![Saved Jobs](screenshots/Saved.png)
 
 ## 🔔 Notifications
-
-![Notifications](screenshots/notification.png)
-
----
+![Notifications](screenshots/Notification.png)
 
 ## 👨‍💼 Admin Dashboard
-
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](screenshots/Admin Dashboard.png)
 ## ⚙️ Installation
 
 ### 1. Clone Repository
