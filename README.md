@@ -99,7 +99,7 @@ JobPortal
 
 ## 📋 Applied Jobs
 
-![Applied Jobs](screenshots/Applied Jobs.png)
+![Applied Jobs](screenshots/Applied-Jobs.png)
 
 ---
 
@@ -117,7 +117,7 @@ JobPortal
 
 ## 👨‍💼 Admin Dashboard
 
-![Admin Dashboard](screenshots/Admin Dashboard.png)
+![Admin Dashboard](screenshots/Admin-Dashboard.png)
 
 ## ⚙️ Installation
 
