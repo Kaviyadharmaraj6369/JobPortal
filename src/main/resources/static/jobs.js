@@ -603,66 +603,6 @@ function viewCompanyJobs(companyName){
 
 }
 
-// =======================================
-// SEARCH JOBS
-// =======================================
-
-async function searchJobs(){
-
-    lastViewedCompany = null;
-
-    document.querySelectorAll(".filter-btn").forEach(b=>{
-
-        b.classList.remove("active");
-
-    });
-
-    const allBtn = document.querySelector('.filter-btn[data-type="ALL"]');
-
-    if(allBtn){
-
-        allBtn.classList.add("active");
-
-    }
-
-    const key =
-        document.getElementById("search").value.trim();
-    if(key===""){
-// Log this search so the admin can see what people are looking for.
-        if(key !== ""){
-            fetch(BASE_URL + "/search-log", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ keyword: key })
-            }).catch(err => console.log(err));
-        }
-        loadJobs();
-
-        return;
-
-    }
-
-    try{
-
-        const res =
-            await fetch(API + "/search?key=" + encodeURIComponent(key));
-
-        const jobs =
-            await res.json();
-
-        showJobs(jobs);
-
-        markAlreadyAppliedJobs();
-
-    }
-
-    catch(error){
-
-        console.log(error);
-
-    }
-
-}
 
 // =======================================
 // SAVE JOB

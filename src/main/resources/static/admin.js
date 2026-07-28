@@ -81,7 +81,7 @@ function unlockAdmin() {
     loadUsers();
 
     loadApplications();
-    loadTopSearches();
+
 }
 
 function adminLogout() {
