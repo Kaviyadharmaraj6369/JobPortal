@@ -97,7 +97,10 @@ JobPortal
 ![Saved Jobs](screenshots/saved-jobs.png)
 
 ---
+## 📄 Apply Job
 
+![Apply Job](screenshots/apply.png)
+---
 ## 📄 Applied Jobs
 
 ![Applied Jobs](screenshots/applied-jobs.png)
