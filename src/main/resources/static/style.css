@@ -2046,72 +2046,8 @@ img.company-logo{
         grid-template-columns:1fr;
     }
 }
-[data-theme="dark"]{
-    --bg:#0f1420;
-    --text-dark:#e8ecf5;
-    --text-muted:#9aa5ba;
-    --primary-light:#1c2740;
-}
-[data-theme="dark"] body{ background:var(--bg); color:var(--text-dark); }
-[data-theme="dark"] .navbar,
-[data-theme="dark"] .job-card,
-[data-theme="dark"] .company-box,
-[data-theme="dark"] .feature-card,
-[data-theme="dark"] .auth-container,
-[data-theme="dark"] .company-card,
-[data-theme="dark"] .form-card,
-[data-theme="dark"] .dashboard .card,
-[data-theme="dark"] .admin-table-wrap,
-[data-theme="dark"] .analytics-card,
-[data-theme="dark"] .no-data,
-[data-theme="dark"] .error-box,
-[data-theme="dark"] .chat-modal-box,
-[data-theme="dark"] .confirm-box,
-[data-theme="dark"] .toast,
-[data-theme="dark"] .admin-gate-box,
-[data-theme="dark"] .notif-dropdown{
-    background:#182136;
-    color:var(--text-dark);
-}
-[data-theme="dark"] .job-header{ border-bottom-color:#263049; }
-[data-theme="dark"] .applicant-links a,
-[data-theme="dark"] .filter-btn,
-[data-theme="dark"] .auth-container input,
-[data-theme="dark"] .input-group input,
-[data-theme="dark"] .input-group textarea,
-[data-theme="dark"] .admin-controls input,
-[data-theme="dark"] .admin-gate-box input,
-[data-theme="dark"] .search-box,
-[data-theme="dark"] .applicant-details{
-    background:#101828;
-    border-color:#263049;
-    color:var(--text-dark);
-}
-[data-theme="dark"] .hero{ background:linear-gradient(135deg,#182136 0%,#0f1420 60%); }
-[data-theme="dark"] .admin-table thead{ background:#101828; }
-[data-theme="dark"] .admin-table td{ border-top-color:#263049; }
-[data-theme="dark"] .admin-table tbody tr:hover,
-[data-theme="dark"] .notif-item:hover{ background:#101828; }
-[data-theme="dark"] .chat-modal-messages{ background:#101828; }
-[data-theme="dark"] .chat-bubble.theirs{ background:#182136; border-color:#263049; color:var(--text-dark); }
-[data-theme="dark"] .job-details p,
-[data-theme="dark"] .company-info p{ color:#c3cbdb; }
-[data-theme="dark"] .hbar-track{ background:#101828; }
 
-.theme-toggle-btn{
-    background:none;
-    border:none;
-    font-size:17px;
-    color:var(--text-muted);
-    padding:10px;
-    border-radius:50%;
-    cursor:pointer;
-    transition:.2s;
-}
-.theme-toggle-btn:hover{
-    color:var(--primary);
-    background:var(--primary-light);
-}
+
 .skill-match{
     position:absolute;
     top:22px;
