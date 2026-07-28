@@ -627,9 +627,15 @@ async function searchJobs(){
 
     const key =
         document.getElementById("search").value.trim();
-
     if(key===""){
-
+// Log this search so the admin can see what people are looking for.
+        if(key !== ""){
+            fetch(BASE_URL + "/search-log", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ keyword: key })
+            }).catch(err => console.log(err));
+        }
         loadJobs();
 
         return;

@@ -81,7 +81,7 @@ function unlockAdmin() {
     loadUsers();
 
     loadApplications();
-
+    loadTopSearches();
 }
 
 function adminLogout() {
@@ -360,5 +360,40 @@ function filterApplications() {
     });
 
     renderApplications(filtered);
+
+}
+async function loadTopSearches(){
+
+    try{
+
+        const res = await fetch(BASE_URL + "/search-log/top");
+
+        const searches = await res.json();
+
+        const body = document.getElementById("searchBody");
+
+        if(!searches.length){
+
+            body.innerHTML = `<tr><td colspan="2" class="admin-empty">No searches logged yet.</td></tr>`;
+
+            return;
+
+        }
+
+        body.innerHTML = searches.map(s => `
+
+            <tr>
+                <td>${s.keyword}</td>
+                <td>${s.count}</td>
+            </tr>
+
+        `).join("");
+
+    }
+    catch(error){
+
+        console.log(error);
+
+    }
 
 }
