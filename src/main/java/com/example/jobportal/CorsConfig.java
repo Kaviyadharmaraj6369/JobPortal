@@ -13,10 +13,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedMethods("*");
     }
 
-    // Exposes files saved by ApplyController's resume upload
-    // (stored under the local "uploads/" folder) at the URL
-    // path /uploads/<filename>, so resume links actually work
-    // instead of hitting a whitelabel 404/error page.
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/uploads/**")

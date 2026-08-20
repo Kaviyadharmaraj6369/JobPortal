@@ -156,8 +156,7 @@ public class DataGenerator implements CommandLineRunner {
 
     private String randomStipend() {
 
-        // ~25% of internships are unpaid, like real portals —
-        // the rest get a genuinely random stipend range.
+
         boolean unpaid = random.nextInt(100) < 25;
 
         if (unpaid) {
@@ -201,9 +200,7 @@ public class DataGenerator implements CommandLineRunner {
                 " to join " + company +
                 ". Candidates will work on real-world enterprise projects using modern technologies while collaborating with experienced engineering teams.";
     }
-    // ===========================
-    // GENERATE 400 COMPANIES
-    // ===========================
+
 
     private void generateCompanies() {
 
@@ -242,9 +239,7 @@ public class DataGenerator implements CommandLineRunner {
 
     }
 
-    // ===========================
-    // COMPANY DESCRIPTION
-    // ===========================
+
 
     private String generateCompanyDescription(String company,
                                               String industry) {
@@ -267,18 +262,13 @@ public class DataGenerator implements CommandLineRunner {
 
     }
 
-    // ===========================
-    // RANDOM POSTED BY
-    // ===========================
 
     private Integer randomPostedBy() {
 
         return 1;
 
     }
-    // ===========================
-// GENERATE 1000 FULL TIME JOBS
-// ===========================
+
 
     private void generateFullTimeJobs() {
 
@@ -324,9 +314,7 @@ public class DataGenerator implements CommandLineRunner {
         }
 
     }
-    // ===========================
-// GENERATE 400 INTERNSHIPS
-// ===========================
+
 
     private void generateInternships() {
 

@@ -6,14 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-// ==========================================================
-// Lightweight admin/reporting endpoints for the developer.
-//
-// NOTE: this has no authentication/authorization of its own —
-// it is meant for local/dev use (viewed via admin.html) rather
-// than a public-facing admin panel. Don't expose this route
-// on a public deployment without adding a real admin login.
-// ==========================================================
+
 
 @RestController
 @RequestMapping("/api/admin")
@@ -31,8 +24,6 @@ public class AdminController {
 
     @Autowired
     private ApplyService applyService;
-
-    // Users list, without exposing password hashes.
     @GetMapping("/users")
     public List<Map<String, Object>> getUsers() {
 
@@ -47,7 +38,7 @@ public class AdminController {
                 .toList();
     }
 
-    // Quick summary counts for the dashboard header.
+
     @GetMapping("/stats")
     public Map<String, Object> getStats() {
 

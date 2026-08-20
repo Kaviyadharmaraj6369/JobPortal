@@ -8,9 +8,7 @@ if (!user) {
 
 loadSaved();
 
-// ===================================
-// LOAD SAVED JOBS
-// ===================================
+
 
 async function loadSaved() {
 
@@ -155,9 +153,7 @@ async function loadSaved() {
 
 }
 
-// Marks Apply buttons as "Already Applied" (red) for saved jobs
-// this user has already applied to — same behavior as the
-// home page, so status stays consistent everywhere.
+
 async function markAlreadyAppliedJobs(){
 
     try{
@@ -191,9 +187,7 @@ async function markAlreadyAppliedJobs(){
 
 }
 
-// ===================================
-// OPEN APPLY PAGE
-// ===================================
+
 
 function viewJob(id) {
 

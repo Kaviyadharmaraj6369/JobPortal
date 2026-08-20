@@ -1,10 +1,4 @@
-// ==========================================================
-// SHARED CHAT MODAL
-// A lightweight recruiter <-> candidate chat thread, tied to
-// one application (applicationId). Used by:
-//   - apply.js (applicant side, senderRole = "USER")
-//   - admin.js (admin side, senderRole = "ADMIN")
-// ==========================================================
+
 
 let currentChatApplicationId = null;
 let currentChatSenderRole = null;
@@ -49,9 +43,7 @@ function ensureChatModal() {
 
 }
 
-// Call this to open the chat for a given application.
-// senderRole is "USER" or "ADMIN", senderName is shown to the
-// other side (applicant's name, or "JobPortal Recruiter").
+
 async function openChatModal(applicationId, senderRole, senderName, title) {
 
     currentChatApplicationId = applicationId;

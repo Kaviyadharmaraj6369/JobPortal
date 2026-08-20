@@ -4,11 +4,7 @@ function getUser() {
     return JSON.parse(localStorage.getItem("user"));
 }
 
-// ==========================================================
-// NAVBAR ACTIVE LINK
-// Highlights whichever nav link matches the current page, on
-// every page that includes this file.
-// ==========================================================
+
 
 document.addEventListener("DOMContentLoaded", () => {
 

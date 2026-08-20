@@ -1,13 +1,4 @@
-// ==========================================================
-// ADMIN DASHBOARD
-// Loads stats, registered users, and every job application
-// (from every user) so the developer can see who applied,
-// to which job, and when.
-// ==========================================================
 
-// Client-side-only gate — keeps casual visitors out during
-// local/dev use. NOT real security; don't rely on this alone
-// if this app is ever deployed publicly.
 const ADMIN_PASSWORD = "Kavi@1929";
 
 let allApplications = [];
@@ -92,9 +83,7 @@ function adminLogout() {
 
 }
 
-// ===============================
-// STATS
-// ===============================
+
 
 async function loadStats() {
 
@@ -120,9 +109,7 @@ async function loadStats() {
 
 }
 
-// ===============================
-// USERS
-// ===============================
+
 
 async function loadUsers() {
 
@@ -175,9 +162,7 @@ async function loadUsers() {
 
 }
 
-// ===============================
-// APPLICATIONS
-// ===============================
+
 
 async function loadApplications() {
 
@@ -187,8 +172,7 @@ async function loadApplications() {
 
         allApplications = await res.json();
 
-        // Pre-fetch job details for every unique jobId referenced,
-        // so we can show job title + company without N calls per row.
+
         const uniqueJobIds = [...new Set(allApplications.map(a => a.jobId))];
 
         await Promise.all(uniqueJobIds.map(async (id) => {
@@ -284,9 +268,7 @@ function renderApplications(list) {
 
 }
 
-// ===============================
-// APPROVE / REJECT
-// ===============================
+
 
 async function updateApplicationStatus(id, status) {
 
@@ -330,9 +312,7 @@ async function updateApplicationStatus(id, status) {
 
 }
 
-// ===============================
-// SEARCH / FILTER
-// ===============================
+
 
 function filterApplications() {
 

@@ -1,10 +1,4 @@
-// ==========================================================
-// NOTIFICATIONS
-// Adds a bell icon to the navbar (for logged-in users) that
-// shows when an application's status has changed to APPROVED
-// or REJECTED since the user last checked. Include this file
-// on any page that has the standard navbar + a logged-in user.
-// ==========================================================
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -42,8 +36,7 @@ function injectNotificationBell() {
         </div>
     `;
 
-    // Insert the bell right before the Logout link if present,
-    // otherwise just append it to the nav.
+
     const logoutLink = document.getElementById("logoutLink");
 
     if (logoutLink) {
@@ -83,8 +76,7 @@ async function loadNotifications(userId) {
 
         const seen = JSON.parse(localStorage.getItem(seenKey) || "{}");
 
-        // A "notification" is any decided (non-pending) application
-        // whose status the user hasn't acknowledged in this browser yet.
+
         const decided = appliedJobs.filter(a =>
             a.status === "APPROVED" || a.status === "REJECTED");
 

@@ -18,9 +18,7 @@ public class ApplyController {
     @Autowired
     private ApplyService service;
 
-    // ===========================
-    // APPLY JOB
-    // ===========================
+
 
     @PostMapping
     public ResponseEntity<?> apply(@RequestBody ApplyRequest request) {
@@ -41,9 +39,7 @@ public class ApplyController {
 
     }
 
-    // ===========================
-    // RESUME UPLOAD
-    // ===========================
+
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadResume(
@@ -83,9 +79,7 @@ public class ApplyController {
 
     }
 
-    // ===========================
-    // USER APPLICATIONS
-    // ===========================
+
 
     @GetMapping("/user/{userId}")
     public List<AppliedJob> getUserApplications(
@@ -95,9 +89,7 @@ public class ApplyController {
 
     }
 
-    // ===========================
-    // ALL APPLICATIONS
-    // ===========================
+
 
     @GetMapping("/all")
     public List<AppliedJob> getAllApplications() {
@@ -106,9 +98,6 @@ public class ApplyController {
 
     }
 
-    // ===========================
-    // UPDATE STATUS
-    // ===========================
 
     @PutMapping("/{id}/{status}")
     public AppliedJob updateStatus(

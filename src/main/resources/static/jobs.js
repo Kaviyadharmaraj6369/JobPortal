@@ -1,27 +1,17 @@
 const API = BASE_URL + "/jobs";
 
-// Company logo lookup (companyLogos map + getCompanyLogoUrl)
-// now lives in the shared company-logo.js file.
 
-// Holds the currently loaded set of jobs (all jobs, or search
-// results) so the Full-Time / Internship filter tabs and the
-// "View Jobs" company button can filter without extra fetches.
 let allJobs = [];
 
-// Pagination — showing all 1000+ jobs at once is slow and
-// overwhelming, so we render in pages like a real job portal.
+
 let currentPageJobs = [];
 let jobsPerPage = 12;
 let jobsShown = 0;
 
-// Tracks which company's "View Jobs" was clicked, if any — used
-// to show a friendlier empty-state message instead of a generic
-// "No Jobs Found" when a specific company has nothing open.
+
 let lastViewedCompany = null;
 
-// ===============================
-// LOAD PAGE
-// ===============================
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -33,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ===============================
-// NAVBAR
-// ===============================
+
 
 function checkNavbar(){
 
@@ -59,9 +47,7 @@ function checkNavbar(){
 
 }
 
-// ===============================
-// LOAD JOBS
-// ===============================
+
 
 async function loadJobs(){
 
@@ -121,9 +107,7 @@ async function loadJobs(){
 
 }
 
-// Marks Save buttons as "Saved" for jobs this user already
-// saved in a previous session, so the button state is honest
-// right from page load instead of only after a fresh click.
+
 async function markAlreadySavedJobs(){
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -152,9 +136,7 @@ async function markAlreadySavedJobs(){
     }
 
 }
-// Marks Apply buttons as "Already Applied" (red) for jobs this
-// user has already applied to, so it's obvious before they even
-// click — matching how the Save button shows "Saved".
+
 async function markAlreadyAppliedJobs(){
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -184,7 +166,7 @@ async function markAlreadyAppliedJobs(){
 
 }
 
-// Switches an Apply button into a permanent red "Already Applied" state.
+
 function markApplied(btn){
 
     if(!btn) return;
@@ -197,9 +179,7 @@ function markApplied(btn){
 
 }
 
-// =======================================
-// SHOW JOBS
-// =======================================
+
 
 function showJobs(jobs){
 
@@ -401,9 +381,7 @@ function renderLoadMoreButton(totalCount){
         </button>`;
 
 }
-// ==============================
-// DASHBOARD
-// =======================================
+
 
 async function updateDashboard(jobs){
 
@@ -442,9 +420,6 @@ async function updateDashboard(jobs){
 
 }
 
-// =======================================
-// LOAD COMPANIES
-// =======================================
 
 async function loadCompanies(){
 
@@ -533,9 +508,7 @@ async function loadCompanies(){
     }
 
 }
-// =======================================
-// FILTER JOBS (All / Full-Time / Internships)
-// =======================================
+
 
 function filterJobs(type, btn){
 
@@ -564,9 +537,7 @@ function filterJobs(type, btn){
 
 }
 
-// =======================================
-// VIEW JOBS FOR A SPECIFIC COMPANY
-// =======================================
+
 
 function viewCompanyJobs(companyName){
 
@@ -604,9 +575,7 @@ function viewCompanyJobs(companyName){
 }
 
 
-// =======================================
-// SAVE JOB
-// =======================================
+
 
 async function saveJob(jobId, btn){
 
@@ -657,8 +626,7 @@ async function saveJob(jobId, btn){
             const msg =
                 await res.text();
 
-            // Already-saved jobs should still visually look "Saved",
-            // not throw an error at the user.
+
             if(msg && msg.toLowerCase().includes("already")){
 
                 markSaved(btn || document.getElementById("save-btn-" + jobId));
@@ -684,7 +652,7 @@ async function saveJob(jobId, btn){
 
 }
 
-// Switches a Save button into a permanent green "Saved" state.
+
 function markSaved(btn){
 
     if(!btn) return;
@@ -697,9 +665,7 @@ function markSaved(btn){
 
 }
 
-// =======================================
-// APPLY JOB
-// =======================================
+
 
 async function viewJob(jobId, btn){
 
@@ -716,8 +682,7 @@ async function viewJob(jobId, btn){
 
     }
 
-    // Check if this user already applied to this job, so we
-    // don't let them fill the form again by mistake.
+
     try{
 
         const res = await fetch(BASE_URL + "/apply/user/" + user.id);
@@ -740,8 +705,7 @@ async function viewJob(jobId, btn){
     catch(error){
 
         console.log(error);
-        // If the check fails, fall through and let them apply —
-        // better to allow than to block on a network hiccup.
+
 
     }
 
@@ -751,9 +715,7 @@ async function viewJob(jobId, btn){
 
 }
 
-// =======================================
-// LOGOUT
-// =======================================
+
 
 async function logout(){
 

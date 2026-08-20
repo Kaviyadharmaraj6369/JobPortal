@@ -15,8 +15,7 @@ public class MessageController {
     @Autowired
     private MessageRepository repository;
 
-    // All messages for one application, oldest first — used to
-    // render the chat thread on both the applicant and admin side.
+
     @GetMapping("/application/{applicationId}")
     public List<Message> getMessages(@PathVariable Integer applicationId) {
 

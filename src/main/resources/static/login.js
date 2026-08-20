@@ -7,9 +7,7 @@ if (loggedUser) {
 
 }
 
-// ===================================
-// SHOW / HIDE PASSWORD
-// ===================================
+
 
 function togglePassword(inputId, iconId) {
 

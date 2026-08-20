@@ -16,7 +16,7 @@ public class AuthController {
     private BCryptPasswordEncoder encoder =
             new BCryptPasswordEncoder();
 
-    // ================= REGISTER =================
+
 
     @PostMapping("/register")
     public ResponseEntity<?> register(
@@ -44,7 +44,7 @@ public class AuthController {
 
     }
 
-    // ================= LOGIN =================
+
 
     @PostMapping("/login")
     public ResponseEntity<?> login(

@@ -6,9 +6,7 @@ if (loggedUser) {
 
 }
 
-// ===================================
-// SHOW / HIDE PASSWORD
-// ===================================
+
 
 function togglePassword(inputId, iconId) {
 
@@ -86,7 +84,7 @@ async function register() {
 
         const message = await res.text();
 
-        // ================= SUCCESS =================
+
         if (res.ok) {
 
             document.getElementById("result").innerHTML = `
@@ -101,7 +99,6 @@ async function register() {
 
         }
 
-        // ================= ERROR =================
         else {
 
             if (message === "EMAIL_EXISTS") {

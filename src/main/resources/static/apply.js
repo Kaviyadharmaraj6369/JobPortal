@@ -8,12 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadAppliedJobs();
 });
 
-// ===============================
-// URL SAFETY HELPER
-// ===============================
-// Profile links saved without "http(s)://" would otherwise be
-// treated as a path on this site (causing a whitelabel error
-// page) instead of opening the external site.
+
 
 function ensureUrl(link) {
 
@@ -29,9 +24,7 @@ function ensureUrl(link) {
 
 }
 
-// ===============================
-// LOAD APPLIED JOBS
-// ===============================
+
 
 async function loadAppliedJobs() {
 
@@ -274,9 +267,7 @@ Unable to load applied jobs
 
 }
 
-// ===============================
-// TOGGLE APPLICANT DETAILS
-// ===============================
+
 
 function toggleDetails(id) {
 
@@ -292,9 +283,7 @@ function toggleDetails(id) {
 
 }
 
-// ===============================
-// WITHDRAW APPLICATION
-// ===============================
+
 
 async function withdrawApplication(id) {
 

@@ -20,11 +20,10 @@ if (!jobId) {
 
 }
 
-// Company logo lookup (companyLogos map + getCompanyLogoUrl)
-// now lives in the shared company-logo.js file.
+
 
 document.addEventListener("DOMContentLoaded", () => {
-// Add to applyjob.js, call once in DOMContentLoaded:
+
     document.getElementById("skills").addEventListener("input", function(){
         const count = this.value.split(",").filter(s => s.trim()).length;
         let hint = document.getElementById("skillsHint");
@@ -40,10 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// Runs before the form loads. If this user already applied to
-// this exact job (regardless of which page/button sent them
-// here), we skip the form entirely and send them back with a
-// clear message — instead of letting them fill it out again.
+
 async function checkAlreadyApplied(){
 
     if (!user || !jobId) {
@@ -81,12 +77,7 @@ async function checkAlreadyApplied(){
 
 }
 
-// ===============================
-// SIMILAR JOBS RECOMMENDATION
-// ===============================
-// Suggests other openings of the same type (JOB/INTERN) that
-// share at least one required skill with the job being viewed —
-// same idea as "People also viewed" on real job portals.
+
 
 async function loadSimilarJobs(currentJob){
 
@@ -217,12 +208,7 @@ async function loadJob(){
 }
 async function submitApplication(){
 
-    // ===============================
-    // VALIDATE REQUIRED FIELDS
-    // ===============================
-    // LinkedIn, GitHub, Portfolio, LeetCode and HackerRank stay
-    // optional — everything else needs to be filled before the
-    // Apply button actually submits anything.
+
 
     const requiredFields = [
         { id: "fullName", label: "Full Name" },
@@ -246,8 +232,7 @@ async function submitApplication(){
 
     });
 
-    // Clear any previous error highlighting, then mark the
-    // fields that are still missing right now.
+
     requiredFields.forEach(f => {
 
         const el = document.getElementById(f.id);
@@ -267,7 +252,7 @@ async function submitApplication(){
     if(missing.length > 0){
 
         const missingNames = missing.map(f => f.label).join(", ");
-// Add inside the requiredFields check block, after the missing.length check:
+
         const phoneVal = document.getElementById("phone").value.trim();
         if(phoneVal && !/^[6-9]\d{9}$/.test(phoneVal)){
             showToast("Enter a valid 10-digit Indian mobile number", "error");
@@ -281,8 +266,7 @@ async function submitApplication(){
         document.getElementById("result").innerHTML =
             `<div class="error-box">Please fill all required fields: ${missingNames}</div>`;
 
-        // Focus the first missing field so the user can jump
-        // straight to it instead of hunting for it.
+
         const firstMissingEl = document.getElementById(missing[0].id);
         if(firstMissingEl) firstMissingEl.focus();
 

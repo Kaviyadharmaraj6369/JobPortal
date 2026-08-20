@@ -1,17 +1,8 @@
-// ==========================================================
-// SHARED COMPANY LOGO RESOLVER
-// Used by: jobs.js, saved.js, apply.js, applyjob.js
-//
-// Every company gets a unique, deterministic "initials" logo
-// (same idea as LinkedIn / Slack fallback avatars) generated
-// as an inline SVG data-URI — no image files needed at all,
-// so it works for all 400 companies out of the box.
-// ==========================================================
+
 
 const companyLogos = {};
 
-// Palette used for auto-generated logos — picked to look
-// good with white text and rotate through distinct hues.
+
 const LOGO_COLORS = [
     "#2962ff","#00897b","#d81b60","#6d4c41","#5e35b1",
     "#00acc1","#43a047","#fb8c00","#3949ab","#c0392b",
@@ -50,9 +41,7 @@ function getColorForName(name){
     return LOGO_COLORS[index];
 }
 
-// Builds a small square SVG logo with the company's initials
-// on a deterministic background color, returned as a data URI
-// so it can be used anywhere a normal image src is expected.
+
 function generateInitialsLogo(name){
 
     const initials = getInitials(name);
@@ -69,7 +58,7 @@ function generateInitialsLogo(name){
     return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
 }
 
-// Main function — call this anywhere a company logo URL is needed.
+
 function getCompanyLogoUrl(companyName){
 
     if(companyLogos[companyName]){

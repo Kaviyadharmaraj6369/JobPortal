@@ -1,9 +1,4 @@
-// ==========================================================
-// SHARED TOAST NOTIFICATIONS + CUSTOM CONFIRM DIALOG
-// Replaces ugly browser alert()/confirm() popups with a
-// neat, on-page notification that matches the site design.
-// Used by: jobs.js, applyjob.js, saved.js, apply.js
-// ==========================================================
+
 
 function ensureToastContainer() {
 
@@ -18,7 +13,7 @@ function ensureToastContainer() {
     return container;
 }
 
-// type: "success" | "error" | "info"
+
 function showToast(message, type = "success", duration = 3000) {
 
     const container = ensureToastContainer();
@@ -51,7 +46,7 @@ function showToast(message, type = "success", duration = 3000) {
 
 }
 
-// Returns a Promise<boolean> — resolves true if user confirms.
+
 function showConfirm(message, title = "Please Confirm") {
 
     return new Promise((resolve) => {
