@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8081/api";
+const BASE_URL = "/api";
 
 function getUser() {
     return JSON.parse(localStorage.getItem("user"));
